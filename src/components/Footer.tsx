@@ -22,8 +22,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              The first Open Liquidity (OPL) Layer on Solana. Providing
-              efficient and smooth liquidity for trading pools.
+              Deep Protocol is Solana's first AI-powered liquidity pool aggregator. Providing liquidity has never been easier. Provide liquidity, track & earn yields with our professional aggregator.
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
               <b>Contact us</b>

@@ -68,23 +68,7 @@ export default function Header() {
                 pathname.startsWith("/pools") ? " font-bold" : ""
               }`}
             >
-              Pools
-            </Link>
-            <Link
-              href="/add-pool"
-              className={`text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors${
-                pathname === "/add-pool" ? " font-bold" : ""
-              }`}
-            >
-              Add Pool
-            </Link>
-            <Link
-              href="/analytics"
-              className={`text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors${
-                pathname === "/analytics" ? " font-bold" : ""
-              }`}
-            >
-              Analytics
+              Deep Aggregator
             </Link>
             <Link
               href="/careers"
