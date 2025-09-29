@@ -68,6 +68,27 @@
     font-family: var(--font-inter), Inter, sans-serif;
     @apply bg-background text-foreground;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Enhanced smooth scrolling for better UX */
+  * {
+    scroll-behavior: smooth;
+  }
+  
+  /* Prevent scroll chaining for better control */
+  .sticky-scroll-section {
+    overscroll-behavior: contain;
+  }
+  
+  /* Sticky scroll section */
+  .sticky-scroll-section {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 }
 
 button, a {
@@ -102,5 +123,20 @@ button, a {
   
   .group:hover .group-hover\:scale-105 {
     transform: scale(1.05);
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
