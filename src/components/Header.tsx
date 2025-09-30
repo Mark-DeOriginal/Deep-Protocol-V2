@@ -5,6 +5,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { Twitter } from "lucide-react";
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
   const { user, isAuthenticated, logout } = useAuth();
@@ -82,6 +83,17 @@ export default function Header() {
 
           {/* Right side */}
           <div className="flex items-center space-x-4">
+            {/* Twitter Link */}
+            <a
+              href="https://x.com/DeepProtocol"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors group"
+              title="Follow us on X"
+            >
+              <Twitter className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
+            </a>
+
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
