@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-gray-800">
+    <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Logo and Description */}
-          <div className="md:col-span-1">
+          <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
                 <img
@@ -21,46 +22,44 @@ export default function Footer() {
                 Deep Protocol
               </span>
             </div>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Deep Protocol is Solana's first AI-powered liquidity pool aggregator. Providing liquidity has never been easier. Provide liquidity, track & earn yields with our professional aggregator.
+            <p className="text-gray-600 dark:text-gray-400 text-sm max-w-md">
+              Solana's AI-powered liquidity pool aggregator. Providing liquidity has never been easier.
             </p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
-              <b>Contact us</b>
-              <br />
-              support@deep-protocol.fun
-              <br />
-              info@deep-protocol.fun
-            </p>
+            <div className="mt-6">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
+                Contact
+              </p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                support@deep-protocol.fun
+                <br />
+                info@deep-protocol.fun
+              </p>
+            </div>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="md:text-right">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">
-              Platform
+              Quick Links
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="https://x.com/DeepProtocol"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  <Twitter className="w-4 h-4" />
+                  <span>Follow us on X</span>
+                </a>
+              </li>
               <li>
                 <Link
                   href="/pools"
                   className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
-                  Liquidity Pools
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/add-pool"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Add Pool
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/analytics"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Analytics
+                  Deep Aggregator
                 </Link>
               </li>
               <li>
@@ -81,75 +80,13 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">
-              Resources
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  API Reference
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Security Audits
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Bug Bounty
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-sm text-gray-600 dark:text-gray-400">
-              © {new Date().getFullYear()} Deep Protocol. All rights reserved.
-            </div>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a
-                href="#"
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-                Cookie Policy
-              </a>
-            </div>
-          </div>
+        {/* Copyright */}
+        <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 text-center">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            © {new Date().getFullYear()} Deep Protocol. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
