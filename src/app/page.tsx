@@ -1104,6 +1104,191 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Roadmap Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 overflow-hidden opacity-30">
+          <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 -left-40 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              Our{" "}
+              <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
+                Roadmap
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Building the future of liquidity provisioning, one milestone at a time.
+            </p>
+          </div>
+
+          {/* Timeline Container */}
+          <div className="relative">
+            {/* Vertical Line - Desktop/Tablet */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-blue-500 to-pink-500 transform -translate-x-1/2" />
+
+            {/* Roadmap Items */}
+            <div className="space-y-16">
+              {/* Item 1: Mobile App - Left Side */}
+              <div className="relative group">
+                <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
+                  <div className="md:text-right mb-8 md:mb-0">
+                    <div className="inline-block md:block">
+                      <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border-2 border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
+                        <div className="flex md:flex-row-reverse items-start gap-4 md:text-right">
+                          <div className="flex-shrink-0">
+                            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                              Mobile App & Dashboard
+                            </h3>
+                            <div className="space-y-2 text-left md:text-right">
+                              <p className="text-gray-700 dark:text-gray-300 flex md:flex-row-reverse items-start gap-2">
+                                <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
+                                <span>Liquidity management in your pocket</span>
+                              </p>
+                              <p className="text-gray-700 dark:text-gray-300 flex md:flex-row-reverse items-start gap-2">
+                                <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
+                                <span>Deposit, withdraw, and track yields seamlessly</span>
+                              </p>
+                              <p className="text-gray-700 dark:text-gray-300 flex md:flex-row-reverse items-start gap-2">
+                                <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
+                                <span>Push notifications for top-performing pools</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Center Circle */}
+                  <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full items-center justify-center shadow-2xl border-4 border-gray-50 dark:border-gray-900 group-hover:scale-125 transition-transform z-10">
+                    <span className="text-3xl font-bold text-white">1</span>
+                  </div>
+                  
+                  <div className="md:col-start-2" />
+                </div>
+              </div>
+
+              {/* Item 2: AI Advisory - Right Side */}
+              <div className="relative group">
+                <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
+                  <div className="md:col-start-2 mb-8 md:mb-0">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0">
+                          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                            AI Yield Advisory Dashboard
+                          </h3>
+                          <div className="space-y-2">
+                            <p className="text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                              <span>Personalized insights: "Deposit X SOL into Pool Y, hold Z $DEEP, expect N% yield"</span>
+                            </p>
+                            <p className="text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                              <span>Portfolio optimization suggestions powered by AI</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Center Circle */}
+                  <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full items-center justify-center shadow-2xl border-4 border-gray-50 dark:border-gray-900 group-hover:scale-125 transition-transform z-10">
+                    <span className="text-3xl font-bold text-white">2</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Item 3: Cross-Chain - Left Side */}
+              <div className="relative group">
+                <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
+                  <div className="md:text-right mb-8 md:mb-0">
+                    <div className="inline-block md:block">
+                      <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border-2 border-orange-200 dark:border-orange-800 hover:border-orange-400 dark:hover:border-orange-600 transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
+                        <div className="flex md:flex-row-reverse items-start gap-4 md:text-right">
+                          <div className="flex-shrink-0">
+                            <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                              Cross-Chain Expansion
+                            </h3>
+                            <div className="space-y-2 text-left md:text-right">
+                              <p className="text-gray-700 dark:text-gray-300 flex md:flex-row-reverse items-start gap-2">
+                                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
+                                <span>Extend Deep Protocol to support liquidity pools beyond Solana</span>
+                              </p>
+                              <p className="text-gray-700 dark:text-gray-300 flex md:flex-row-reverse items-start gap-2">
+                                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mt-2 flex-shrink-0" />
+                                <span>Multi-chain opportunities for diversified yield strategies</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Center Circle */}
+                  <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full items-center justify-center shadow-2xl border-4 border-gray-50 dark:border-gray-900 group-hover:scale-125 transition-transform z-10">
+                    <span className="text-3xl font-bold text-white">3</span>
+                  </div>
+                  
+                  <div className="md:col-start-2" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="mt-20 text-center">
+            <div className="relative overflow-hidden bg-gradient-to-r from-purple-500 to-blue-500 rounded-3xl p-12 shadow-2xl">
+              {/* Animated glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/50 to-blue-400/50 blur-2xl animate-pulse" />
+              
+              <div className="relative z-10">
+                <h3 className="text-3xl font-bold text-white mb-4">
+                  Want to be part of the journey?
+                </h3>
+                <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                  Join our community and get early access to new features as we build the most advanced liquidity aggregator.
+                </p>
+                <Link
+                  href="/signup"
+                  className="inline-block bg-white text-purple-600 px-10 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all hover:scale-105 shadow-xl text-lg"
+                >
+                  Join the Waitlist
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
