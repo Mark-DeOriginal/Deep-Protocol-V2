@@ -838,7 +838,7 @@ export default function Home() {
                     <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full group-hover:scale-125 transition-transform"></div>
                     <span className="font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Development Team</span>
                   </div>
-                  <span className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">5%</span>
+                  <span className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">0%</span>
                 </div>
                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 overflow-hidden">
                   <div 
@@ -846,20 +846,20 @@ export default function Home() {
                       showDeepnomics ? "animate-pulse" : ""
                     }`}
                     style={{ 
-                      width: showDeepnomics ? "5%" : "0%",
+                      width: showDeepnomics ? "0%" : "0%",
                       transitionDelay: showDeepnomics ? "0.5s" : "0s"
                     }}
                   ></div>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
-                  Locked for continuous improvements and long-term ecosystem growth
+                  All creator fees are used to power and develop the DEEP platform
                 </p>
                 
                 {/* Hover Tooltip */}
                 {hoveredBar === "dev" && (
                   <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-2 rounded-lg text-sm whitespace-nowrap z-10 shadow-lg">
-                    <div className="font-bold">5,000,000 $DEEP</div>
-                    <div className="text-xs opacity-80">Fully locked tokens</div>
+                    <div className="font-bold">0 $DEEP</div>
+                    <div className="text-xs opacity-80">Creator fees for platform</div>
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900 dark:border-t-gray-100"></div>
                   </div>
                 )}
@@ -876,7 +876,7 @@ export default function Home() {
                     <div className="w-4 h-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full group-hover:scale-125 transition-transform"></div>
                     <span className="font-semibold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">Open Market</span>
                   </div>
-                  <span className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">95%</span>
+                  <span className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">100%</span>
                 </div>
                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 overflow-hidden">
                   <div 
@@ -884,7 +884,7 @@ export default function Home() {
                       showDeepnomics ? "animate-pulse" : ""
                     }`}
                     style={{ 
-                      width: showDeepnomics ? "95%" : "0%",
+                      width: showDeepnomics ? "100%" : "0%",
                       transitionDelay: showDeepnomics ? "1s" : "0s"
                     }}
                   ></div>
@@ -896,8 +896,8 @@ export default function Home() {
                 {/* Hover Tooltip */}
                 {hoveredBar === "market" && (
                   <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-2 rounded-lg text-sm whitespace-nowrap z-10 shadow-lg">
-                    <div className="font-bold">95,000,000 $DEEP</div>
-                    <div className="text-xs opacity-80">Available to community</div>
+                    <div className="font-bold">100,000,000 $DEEP</div>
+                    <div className="text-xs opacity-80">100% to community</div>
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900 dark:border-t-gray-100"></div>
                   </div>
                 )}
