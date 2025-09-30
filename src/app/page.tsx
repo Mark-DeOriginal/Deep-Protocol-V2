@@ -2,19 +2,52 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { mockPools } from "@/data/mockPools";
+import { fetchRaydiumPools, getPoolAPR, getPoolTVL } from "@/lib/raydiumApi";
 
 export default function Home() {
-  const [stats] = useState({
-    totalLiquidity: mockPools.reduce(
-      (sum, pool) => sum + pool.totalLiquidity,
-      0
-    ),
-    totalPools: mockPools.length,
-    averageDPY:
-      mockPools.reduce((sum, pool) => sum + pool.dpy, 0) / mockPools.length,
+  const [stats, setStats] = useState({
+    totalLiquidity: 0,
+    totalPools: 0,
+    averageDPY: 0,
     totalUsers: 174503,
   });
+
+  // Fetch real pool data for stats
+  useEffect(() => {
+    const loadStats = async () => {
+      try {
+        const response = await fetchRaydiumPools({
+          poolType: 'all',
+          poolSortField: 'default',
+          sortType: 'desc',
+          pageSize: 100,
+          page: 1
+        });
+
+        if (response.success && response.data.data.length > 0) {
+          // Filter out pools with APR less than 4%
+          const pools = response.data.data.filter(pool => {
+            const apr = getPoolAPR(pool);
+            return apr >= 4;
+          });
+          
+          const totalLiquidity = pools.reduce((sum, pool) => sum + getPoolTVL(pool), 0);
+          const averageAPR = pools.reduce((sum, pool) => sum + getPoolAPR(pool), 0) / pools.length;
+          
+          setStats({
+            totalLiquidity: Math.round(totalLiquidity),
+            totalPools: pools.length,
+            averageDPY: Number(averageAPR.toFixed(2)),
+            totalUsers: 174503,
+          });
+        }
+      } catch (error) {
+        console.error('Error loading stats:', error);
+      }
+    };
+
+    loadStats();
+  }, []);
 
   const imageRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -451,13 +484,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Scroll Container for DeFi Section */}
-      <div className="h-[200vh] relative">
-        {/* Sticky DeFi Section */}
+      {/* Scroll Container for DeFi Section - Desktop/Tablet only */}
+      <div className="md:h-[200vh] relative">
+        {/* Sticky DeFi Section - Desktop/Tablet, Regular Section on Mobile */}
         <section 
           ref={defiSectionRef}
-          className="sticky top-20 h-screen flex items-center bg-gray-50 dark:bg-gray-900 relative overflow-hidden"
-          style={{ height: 'calc(100vh - 5rem)' }}
+          className="md:sticky md:top-20 md:h-screen flex items-center bg-gray-50 dark:bg-gray-900 relative overflow-hidden py-12 md:py-0"
+          style={{ minHeight: 'auto' }}
         >
         {/* Animated Background Bubbles */}
         <div className="absolute inset-0 overflow-hidden">
@@ -529,34 +562,34 @@ export default function Home() {
                   : "translate-y-8 opacity-0"
               }`}
             >
-              {/* Toggle Switch */}
+              {/* Toggle Switch - Always visible and clickable */}
               <div className="flex justify-center mb-8">
-                <div className="bg-gray-200 dark:bg-gray-700 rounded-full p-1 flex">
+                <div className="bg-gray-200 dark:bg-gray-700 rounded-full p-1 flex flex-col sm:flex-row gap-1 sm:gap-0">
                   <button
                     onClick={() => setShowSolution(false)}
-                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                    className={`px-4 sm:px-6 py-3 rounded-full font-medium transition-all duration-300 text-sm sm:text-base ${
                       !showSolution
                         ? "bg-red-500 text-white shadow-lg"
                         : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                     }`}
                   >
-                    ❌ Without Deep Protocol
+                    Without Deep Protocol
                   </button>
                   <button
                     onClick={() => setShowSolution(true)}
-                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                    className={`px-4 sm:px-6 py-3 rounded-full font-medium transition-all duration-300 text-sm sm:text-base ${
                       showSolution
                         ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg"
                         : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                     }`}
                   >
-                    ✅ With Deep Protocol
+                    With Deep Protocol
                   </button>
                 </div>
               </div>
 
               {/* Content Card */}
-              <div className="relative min-h-[600px]">
+              <div className="relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
                 {/* Problem Card */}
                 {!showSolution && (
                   <div className="animate-fadeIn">
@@ -726,8 +759,8 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Scroll Progress Indicator */}
-              <div className="flex justify-center mt-8">
+              {/* Scroll Progress Indicator - Desktop/Tablet only */}
+              <div className="hidden md:flex justify-center mt-8">
                 <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-2 w-64 overflow-hidden">
                   <div 
                     className="bg-gradient-to-r from-red-500 to-purple-500 h-full rounded-full transition-all duration-300 ease-out"
@@ -941,18 +974,12 @@ export default function Home() {
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
                 Join the Deep Protocol community and help shape the future of decentralized liquidity provisioning on Solana.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <Link
                   href="/pools"
                   className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
                 >
                   Start Providing Liquidity
-                </Link>
-                <Link
-                  href="/analytics"
-                  className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                >
-                  View Analytics
                 </Link>
               </div>
             </div>
